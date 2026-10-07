@@ -1,2 +1,2 @@
 # duckdb
-Minimal Alpine image with DuckDB
+Docker environment for DuckDB
