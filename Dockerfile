@@ -1,3 +1,8 @@
-# Minimal Alpine Docker image with DuckDB
+# Minimal Docker image for DuckDB using Alpine base
 FROM alpine:latest
-RUN apk update && apk add --no-cache bash duckdb
+
+# install DuckDB
+RUN apk update && \
+    apk add --no-cache bash libstdc++ && \
+    wget -qO- "https://github.com/duckdb/duckdb/releases/download/v1.5.6/duckdb_cli-linux-amd64-musl.gz" | gunzip > /usr/local/bin/duckdb && \
+    chmod a+x /usr/local/bin/duckdb
